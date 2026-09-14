@@ -19,7 +19,7 @@
 
 ## zbak_po_print
 
-比克采购订单打印
+ABAP RAP采购订单打印
 
 ### Starting the generated app
 
