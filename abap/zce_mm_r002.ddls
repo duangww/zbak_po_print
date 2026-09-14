@@ -1,4 +1,4 @@
-@EndUserText.label: '比克PO打印列表'
+@EndUserText.label: 'PO打印列表'
 @ObjectModel.query.implementedBy: 'ABAP:ZCL_MM_R002_RAP_HANDLER'
 @UI.headerInfo: {
   typeName: '采购订单',

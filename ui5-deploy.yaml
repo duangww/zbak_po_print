@@ -15,10 +15,10 @@ builder:
       configuration:
         target:
           url: http://sapbkd-app.bak.com.cn:8000
-          client: '300'
+          client: "300"
         app:
           name: ZBAK_PO_PRINT
-          description: 比克采购订单打印
+          description: 采购订单打印
           package: ZRAP
           transport: BKDK914253
         exclude:

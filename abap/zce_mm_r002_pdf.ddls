@@ -1,4 +1,4 @@
-@EndUserText.label: '比克PO打印PDF'
+@EndUserText.label: 'PO打印PDF'
 @ObjectModel.query.implementedBy: 'ABAP:ZCL_MM_R002_PDF_HANDLER'
 define root custom entity ZCE_MM_R002_PDF
 {
