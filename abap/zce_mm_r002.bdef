@@ -1,0 +1,8 @@
+unmanaged implementation in class zbp_ce_mm_r002 unique;
+
+define behavior for ZCE_MM_R002 alias PoPrint
+{
+  field ( readonly ) ebeln, log, bukrs, butxt, lifnr, name1, bedat, ekgrp, ekorg, werks, noshow;
+  action previewPdf result [1] ZA_MM_R002_PDF;
+  action confirmPrint;
+}

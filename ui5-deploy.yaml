@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "4.0"
+metadata:
+  name: zbakpoprint
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: http://sapbkd-app.bak.com.cn:8000
+          client: '300'
+        app:
+          name: ZBAK_PO_PRINT
+          description: 比克采购订单打印
+          package: ZRAP
+          transport: BKDK914253
+        exclude:
+          - /test/
+          - /localService/

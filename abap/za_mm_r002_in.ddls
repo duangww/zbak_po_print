@@ -1,0 +1,5 @@
+@EndUserText.label: 'PO打印确认参数'
+define abstract entity ZA_MM_R002_IN
+{
+  ebelns : abap.char(1333);
+}

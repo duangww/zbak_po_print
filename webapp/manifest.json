@@ -1,0 +1,177 @@
+{
+  "_version": "1.60.0",
+  "sap.app": {
+    "id": "zbakpoprint",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.32.0",
+      "toolsId": "8ece142e-d38d-482b-bf3b-344058a69fdc"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zui_mm_r002_o4/srvd/sap/zui_mm_r002/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.120.23",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "zbakpoprint.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "PoPrintList",
+          "target": "PoPrintList"
+        },
+        {
+          "pattern": "PoPrint({key}):?query:",
+          "name": "PoPrintObjectPage",
+          "target": "PoPrintObjectPage"
+        }
+      ],
+      "targets": {
+        "PoPrintList": {
+          "type": "Component",
+          "id": "PoPrintList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/PoPrint",
+              "variantManagement": "Page",
+              "navigation": {
+                "PoPrint": {
+                  "detail": {
+                    "route": "PoPrintObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "actions": {
+                    "DataFieldForAction::com.sap.gateway.srvd.zui_mm_r002.v0001.confirmPrint": {
+                      "visible": false
+                    },
+                    "DataFieldForAction::com.sap.gateway.srvd.zui_mm_r002.v0001.confirmPrint(com.sap.gateway.srvd.zui_mm_r002.v0001.PoPrintType)": {
+                      "visible": false
+                    },
+                    "PreviewPdf": {
+                      "press": "zbakpoprint.ext.CustomActions.previewPdf",
+                      "enabled": "zbakpoprint.ext.CustomActions.singleSelection",
+                      "requiresSelection": true,
+                      "visible": true,
+                      "text": "{i18n>actionPreview}"
+                    },
+                    "ConfirmPrint": {
+                      "press": "zbakpoprint.ext.CustomActions.confirmPrint",
+                      "requiresSelection": true,
+                      "visible": true,
+                      "text": "{i18n>actionPrint}"
+                    }
+                  },
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "PoPrintObjectPage": {
+          "type": "Component",
+          "id": "PoPrintObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/PoPrint"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  }
+}

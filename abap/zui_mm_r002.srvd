@@ -1,0 +1,5 @@
+@EndUserText.label: '比克PO打印'
+define service ZUI_MM_R002 {
+  expose ZCE_MM_R002     as PoPrint;
+  expose ZCE_MM_R002_PDF as PoPdf;
+}

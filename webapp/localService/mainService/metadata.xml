@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zui_mm_r002.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="PoPdfType">
+                <Key>
+                    <PropertyRef Name="ebelns"/>
+                    <PropertyRef Name="formid"/>
+                </Key>
+                <Property Name="ebelns" Type="Edm.String" Nullable="false" MaxLength="1333"/>
+                <Property Name="formid" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="filename" Type="Edm.String" Nullable="false" MaxLength="128"/>
+                <Property Name="mimetype" Type="Edm.String" Nullable="false" MaxLength="128"/>
+                <Property Name="pdf" Type="Edm.Stream"/>
+                <Property Name="message" Type="Edm.String" Nullable="false" MaxLength="255"/>
+            </EntityType>
+            <EntityType Name="PoPrintType">
+                <Key>
+                    <PropertyRef Name="ebeln"/>
+                </Key>
+                <Property Name="ebeln" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="log" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="previewtxt" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="pdfUrl" Type="Edm.String" Nullable="false" MaxLength="1024"/>
+                <Property Name="bukrs" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="butxt" Type="Edm.String" Nullable="false" MaxLength="25"/>
+                <Property Name="lifnr" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="name1" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="bedat" Type="Edm.Date"/>
+                <Property Name="ekgrp" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="ekorg" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="werks" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="noshow" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zui_mm_r002.v0001.SAP__Message)" Nullable="false"/>
+            </EntityType>
+            <ComplexType Name="ZA_MM_R002_PDF">
+                <Property Name="filename" Type="Edm.String" Nullable="false" MaxLength="128"/>
+                <Property Name="message" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="mimetype" Type="Edm.String" Nullable="false" MaxLength="128"/>
+                <Property Name="pdf" Type="Edm.Stream" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <Action Name="previewPdf" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zui_mm_r002.v0001.PoPrintType" Nullable="false"/>
+                <ReturnType Type="com.sap.gateway.srvd.zui_mm_r002.v0001.ZA_MM_R002_PDF" Nullable="false"/>
+            </Action>
+            <Action Name="confirmPrint" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zui_mm_r002.v0001.PoPrintType" Nullable="false"/>
+            </Action>
+            <EntityContainer Name="Container">
+                <EntitySet Name="PoPdf" EntityType="com.sap.gateway.srvd.zui_mm_r002.v0001.PoPdfType"/>
+                <EntitySet Name="PoPrint" EntityType="com.sap.gateway.srvd.zui_mm_r002.v0001.PoPrintType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.PoPdfType/ebelns">
+                <Annotation Term="SAP__common.Label" String="采购订单列表(;分隔)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPdfType/formid">
+                <Annotation Term="SAP__common.Label" String="表单名"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="名称"/>
+                <Annotation Term="SAP__common.QuickInfo" String="智能表: 表格名称"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPdfType/filename">
+                <Annotation Term="SAP__common.Label" String="文件名"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPdfType/mimetype">
+                <Annotation Term="SAP__common.Label" String="MIME"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPdfType/pdf">
+                <Annotation Term="SAP__core.ContentDisposition">
+                    <Record>
+                        <PropertyValue Property="Filename" Path="filename"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.MediaType" Path="mimetype"/>
+                <Annotation Term="SAP__core.AcceptableMediaTypes">
+                    <Collection>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="PDF"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPdfType/message">
+                <Annotation Term="SAP__common.Label" String="错误信息"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPdfType">
+                <Annotation Term="SAP__common.Label" String="比克PO打印PDF"/>
+                <Annotation Term="Communication.Contact">
+                    <Record/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/PoPdf">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPrintType/ebeln">
+                <Annotation Term="SAP__common.Label" String="采购订单"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="采购凭证"/>
+                <Annotation Term="SAP__common.QuickInfo" String="采购凭证编号"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPrintType/log">
+                <Annotation Term="SAP__common.Label" String="已打印"/>
+                <Annotation Term="SAP__core.Computed"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPrintType/previewtxt">
+                <Annotation Term="SAP__common.Label" String="预览PDF"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPrintType/bukrs">
+                <Annotation Term="SAP__common.Label" String="公司代码"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="公司"/>
+                <Annotation Term="SAP__common.QuickInfo" String="公司代码"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPrintType/butxt">
+                <Annotation Term="SAP__common.Label" String="公司名称"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Heading" String="公司名称"/>
+                <Annotation Term="SAP__common.QuickInfo" String="公司代码或公司的名称"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPrintType/lifnr">
+                <Annotation Term="SAP__common.Label" String="供应商"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="供应商"/>
+                <Annotation Term="SAP__common.QuickInfo" String="供应商科目编号"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPrintType/name1">
+                <Annotation Term="SAP__common.Label" String="供应商名称"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Heading" String="名称 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="名称"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPrintType/bedat">
+                <Annotation Term="SAP__common.Label" String="订单日期"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Heading" String="PO 日期"/>
+                <Annotation Term="SAP__common.QuickInfo" String="采购订单日期"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPrintType/ekgrp">
+                <Annotation Term="SAP__common.Label" String="采购组"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="PGr"/>
+                <Annotation Term="SAP__common.QuickInfo" String="采购组"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPrintType/ekorg">
+                <Annotation Term="SAP__common.Label" String="采购组织"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="采购"/>
+                <Annotation Term="SAP__common.QuickInfo" String="采购组织"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPrintType/werks">
+                <Annotation Term="SAP__common.Label" String="工厂"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="工厂"/>
+                <Annotation Term="SAP__common.QuickInfo" String="工厂"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPrintType/noshow">
+                <Annotation Term="SAP__common.Label" String="不显示已打印"/>
+                <Annotation Term="SAP__core.Computed"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPrintType">
+                <Annotation Term="SAP__common.Label" String="比克PO打印列表"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="采购订单"/>
+                        <PropertyValue Property="TypeNamePlural" String="采购订单"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="ebeln"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="预览"/>
+                            <PropertyValue Property="Action" String="com.sap.gateway.srvd.zui_mm_r002.v0001.previewPdf(com.sap.gateway.srvd.zui_mm_r002.v0001.PoPrintType)"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="SAP__UI.OperationGroupingType/Isolated"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="打印"/>
+                            <PropertyValue Property="Action" String="com.sap.gateway.srvd.zui_mm_r002.v0001.confirmPrint(com.sap.gateway.srvd.zui_mm_r002.v0001.PoPrintType)"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="SAP__UI.OperationGroupingType/Isolated"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="log"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="预览"/>
+                            <PropertyValue Property="Action" String="com.sap.gateway.srvd.zui_mm_r002.v0001.previewPdf(com.sap.gateway.srvd.zui_mm_r002.v0001.PoPrintType)"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="SAP__UI.OperationGroupingType/Isolated"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldWithUrl">
+                            <PropertyValue Property="Value" Path="previewtxt"/>
+                            <PropertyValue Property="Url" Path="pdfUrl"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ebeln"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="打印"/>
+                            <PropertyValue Property="Action" String="com.sap.gateway.srvd.zui_mm_r002.v0001.confirmPrint(com.sap.gateway.srvd.zui_mm_r002.v0001.PoPrintType)"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="SAP__UI.OperationGroupingType/Isolated"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="bukrs"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="butxt"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="lifnr"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="name1"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="bedat"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>ebeln</PropertyPath>
+                        <PropertyPath>bedat</PropertyPath>
+                        <PropertyPath>ekgrp</PropertyPath>
+                        <PropertyPath>lifnr</PropertyPath>
+                        <PropertyPath>ekorg</PropertyPath>
+                        <PropertyPath>werks</PropertyPath>
+                        <PropertyPath>noshow</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/PoPrint">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="SAP__aggregation.RollupType/None"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PoPrintType/pdfUrl">
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,23 @@
+@EndUserText.label: '比克PO打印PDF'
+@ObjectModel.query.implementedBy: 'ABAP:ZCL_MM_R002_PDF_HANDLER'
+define root custom entity ZCE_MM_R002_PDF
+{
+      @EndUserText.label: '采购订单列表(;分隔)'
+  key ebelns   : abap.char(1333);
+      @EndUserText.label: '表单名'
+  key formid   : tdsfname;
+
+      @EndUserText.label: '文件名'
+      filename : abap.char(128);
+      @EndUserText.label: 'MIME'
+      mimetype : abap.char(128);
+      @EndUserText.label: 'PDF'
+      @Semantics.largeObject: {
+        mimeType: 'mimetype',
+        fileName: 'filename',
+        contentDispositionPreference: #ATTACHMENT
+      }
+      pdf      : abap.rawstring(0);
+      @EndUserText.label: '错误信息'
+      message  : abap.char(255);
+}

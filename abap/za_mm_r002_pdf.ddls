@@ -1,0 +1,8 @@
+@EndUserText.label: 'PO打印PDF结果'
+define abstract entity ZA_MM_R002_PDF
+{
+  pdf      : abap.rawstring(0);
+  mimetype : abap.char(128);
+  filename : abap.char(255);
+  message  : abap.char(255);
+}

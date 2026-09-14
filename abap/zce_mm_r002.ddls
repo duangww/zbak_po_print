@@ -1,0 +1,63 @@
+@EndUserText.label: '比克PO打印列表'
+@ObjectModel.query.implementedBy: 'ABAP:ZCL_MM_R002_RAP_HANDLER'
+@UI.headerInfo: {
+  typeName: '采购订单',
+  typeNamePlural: '采购订单',
+  title: { type: #STANDARD, value: 'ebeln' }
+}
+define root custom entity ZCE_MM_R002
+{
+      @EndUserText.label: '采购订单'
+      @UI.lineItem: [{ position: 20 }]
+      @UI.selectionField: [{ position: 10 }]
+  key ebeln  : ebeln;
+
+      @EndUserText.label: '已打印'
+      @UI.lineItem: [{ position: 10 }]
+      log    : abap.char(1);
+
+      @EndUserText.label: '公司代码'
+      @UI.lineItem: [{ position: 30 }]
+      bukrs  : bukrs;
+
+      @EndUserText.label: '公司名称'
+      @UI.lineItem: [{ position: 40 }]
+      butxt  : butxt;
+
+      @EndUserText.label: '供应商'
+      @UI.lineItem: [{ position: 50 }]
+      @UI.selectionField: [{ position: 40 }]
+      lifnr  : lifnr;
+
+      @EndUserText.label: '供应商名称'
+      @UI.lineItem: [{ position: 60 }]
+      name1  : name1;
+
+      @EndUserText.label: '订单日期'
+      @UI.lineItem: [{ position: 70 }]
+      @UI.selectionField: [{ position: 20 }]
+      bedat  : bedat;
+
+      @EndUserText.label: '采购组'
+      @UI.selectionField: [{ position: 30 }]
+      ekgrp  : ekgrp;
+
+      @EndUserText.label: '采购组织'
+      @UI.selectionField: [{ position: 50 }]
+      ekorg  : ekorg;
+
+      @EndUserText.label: '工厂'
+      @UI.selectionField: [{ position: 60 }]
+      werks  : ewerk;
+
+      @EndUserText.label: '不显示已打印'
+      @UI.selectionField: [{ position: 70 }]
+      noshow : abap_boolean;
+
+      @EndUserText.label: '预览PDF'
+      @UI.hidden: true
+      previewtxt : abap.char(8);
+
+      @UI.hidden: true
+      pdfUrl     : abap.char(1024);
+}
