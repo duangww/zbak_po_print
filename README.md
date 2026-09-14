@@ -20,6 +20,11 @@
 ## zbak_po_print
 
 ABAP RAP采购订单打印
+## 效果
+<img width="1080" height="346" alt="企业微信截图_17893642568951" src="https://github.com/user-attachments/assets/41f96b20-1919-4f19-bcfa-576baee3c249" />
+<img width="1003" height="459" alt="企业微信截图_17893642816481" src="https://github.com/user-attachments/assets/6781d67f-5ac5-48d2-97e4-68d65ac392d2" />
+
+
 
 ### Starting the generated app
 
