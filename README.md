@@ -9,7 +9,7 @@
 |**Service Type**<br>OData URL|
 |**Service URL**<br>https://sapbkd-app.bak.com.cn:44300/sap/opu/odata4/sap/zui_mm_r002_o4/srvd/sap/zui_mm_r002/0001/|
 |**Module Name**<br>zbak_po_print|
-|**Application Title**<br>比克采购订单打印|
+|**Application Title**<br>RAP采购订单打印|
 |**Namespace**<br>|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.120.23|
